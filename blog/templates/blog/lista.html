@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mi blog
+{% endblock title %}
+
+{% block content %}
+ <h1 id="mi-blog">DALLP-BlOG</h1>
+<button class="btn btn-info"><a href="{% url 'blog:post_agregar' %}"><i class="bi bi-plus-circle"></i> POST</a></button> <br>
+ {% if Tag %}
+   <h2>Posts con el tag "{{ Tag.name }}"</h2>
+ {% endif %}
+ 
+ {% for post in Posts %}
+    <h2><a id="titulo-post" href="{{ post.get_absolute_url }}">{{post.titulo}}</a></h2>
+    {% for tag in post.tags.all %}
+      <a href="{% url "blog:post_lista_tag" tag.slug %}" id="tags">
+      {{ tag.name }}
+      </a>
+      {% if not forloop.last %}, {% endif %}
+   {% endfor %}
+        {{ post.body|truncatewords:30|linebreaks }}
+        <hr>
+ {% endfor %}
+     {% include "pagination.html" with page=Posts %}
+{% endblock content %}
+    

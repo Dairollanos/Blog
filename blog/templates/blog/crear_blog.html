@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Agregar Post
+{% endblock title %}
+    
+
+{% block content %}
+    <h1>AGREGAR POST</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ Form.non_field_errors }}
+                <div class="form-group">
+
+                    <label for="{{ form.titulo.id_for_label }}">Titulo:</label> <br>
+                    {{ Form.titulo }}
+                    {{ Form.titulo.errors }}
+
+                </div>
+                <div class="form-group">
+
+                    <label for="{{ form.body.id_for_label }}">Cuerpo:</label> <br>
+                    {{ Form.body }}
+                    {{ Form.body.errors }}
+                </div>
+                <div class="form-group">
+
+                    <label for="{{ form.tags.id_for_label }}">tags:</label> <br>
+                    {{ Form.tags }}
+                    {{ Form.tags.errors }}
+                </div>
+                <input type="submit" value="Agregar" id="subir" class="btn btn-success">
+            </form>
+{% endblock content %}
+    

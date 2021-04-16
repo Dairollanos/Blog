@@ -1,0 +1,25 @@
+{% load static %}
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'blog:post_lista' %}">
+        <img src="{% static 'blog.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'blog:post_lista' %}">INICIO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'perfil' %}">PERFIL</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <h4>Bienvenido, {{ request.user }}  </h4>
+        <button class="btn btn-danger my-2 my-sm-0 m-2" type="submit"><a href="{% url 'logout' %}" id="salir">SALIR</a></button> 
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ Post.titulo }}{% endblock %}
+
+{% block content %}
+
+    {% if Editar %}
+        <a href="{% url 'blog:post_editar' Post.id %}" class="btn btn-success mt-4"><i class="bi bi-pencil"></i> EDITAR</a> <br>
+    {% endif %}
+    <h1>{{ Post.titulo }}</h1>
+    <img src="{{ Perfil.avatar.url }}" id="img-perfil">
+    <h5>{{Post.autor}}</h5>
+    <p class="date">
+    Publicado {{ Post.publicado }}
+    <hr>
+    </p>
+    {{ Post.body|linebreaks }}
+    <p>
+        <a href="{% url 'blog:enviar-email' Post.id %}" id="compartir">
+        COMPARTIR ESTE POST
+        </a>
+    </p>
+    <br>
+    <br>
+    <hr>
+    <h2>POST RELACIONADOS</h2>
+    {% for post in PostSimilares %}
+        <p>
+        <a href="{{ post.get_absolute_url }}" id="post-simil">{{ post.titulo }}</a>
+        </p>
+    {% empty %}
+         NO HAY POST RELACIONADOS
+    {% endfor %}
+
+    {% with ComentariosActivos.count as TotalComentarios  %}
+        <h2>
+            {{ TotalComentarios }} comentario{{ TotalComentarios|pluralize }}
+        </h2>
+    {% endwith %}
+
+    
+    {% for comentario in ComentariosActivos  %}
+        <div class="comment">
+            <p class="info">
+                {% comment %} Comentario {{forloop.counter}}  {% endcomment %}
+                {{comentario.creado}} <br>
+                {{comentario.nombre}}: 
+            </p>
+            {{comentario.body|linebreaks}}
+        </div>
+    {% empty %}
+        <p id="sin-coments">No hay comentarios todavia.</p>
+    {% endfor %}
+    <hr>
+    
+    {% if NuevoComentario %}
+        <h2> Tu comentario se ha añadido</h2>
+    {% else %}
+        <h2>Añade un nuevo comentario</h2>
+        <form method="POST">
+            {% csrf_token %}
+                {{ Form.non_field_errors }}
+                <div class="form-group">
+
+                    <label for="{{ Form.body.id_for_label }}">Comentario:</label> <br>
+                    {{ Form.body }}
+                    {{ Form.body.errors }}
+
+                </div>
+            <p><input type="submit" value="Añadir comentario"></p>
+        </form>
+    {% endif %}
+             
+{% endblock %}
