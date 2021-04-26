@@ -7,6 +7,7 @@ app_name = 'blog'
 urlpatterns = [
     path('', post_list, name='post_lista'),
     path('crear/', post_agregar_view, name="post_agregar"),
+    path('eliminar/<int:post_id>/', post_eliminar_view, name="post_eliminar"),
     path('editar/<int:post_id>/', post_editar_view, name="post_editar"),
     path('tag/<slug:tag_slug>/', post_list, name='post_lista_tag'),
     # path('2/', PostListView.as_view(), name='post_lista2'),

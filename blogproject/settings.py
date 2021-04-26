@@ -29,15 +29,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'some_random_default_string')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
-ALLOWED_HOSTS = ['dairo.pythonanywhere.com']
+# ALLOWED_HOSTS = ['dairo.pythonanywhere.com','localhost','127.0.0.1:8000']
+ALLOWED_HOSTS = []
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
 SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    'Usuarios',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     #Apps
     'blog',
-    'Usuarios',
 
     #paquetes
     'taggit',

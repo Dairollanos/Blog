@@ -28,6 +28,12 @@ def post_agregar_view(request):
     return render(request, 'blog/crear_blog.html', context)
 
 @login_required
+def post_eliminar_view(request, post_id):
+    post_obj = Post.objects.get(id=post_id)
+    post_obj.delete()
+    return redirect('blog:post_lista')
+
+@login_required
 def post_editar_view(request, post_id):
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
@@ -81,8 +87,7 @@ def post_email(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{user.username} recomienda que leas " f"{post.titulo}"
             message = f"Lee {post.titulo} at {post_url}\n\n" f"{user.username} opina: {cd['comentarios']}"
-            send_mail(subject, message, 'dairoollanos@gmail.com',
-            [cd['para']])
+            send_mail(subject, message, 'dairoollanos@gmail.com', [cd['para']])
             enviado = True
     else:
         form = EmailPostForm()

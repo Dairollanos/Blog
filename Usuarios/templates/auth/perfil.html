@@ -3,6 +3,8 @@
 
 {% block content %}
     <h1>Perfil de {{Perfil.usuario}}</h1>
+    <a href="{% url 'cambiar_contraseña' %}">¿Deseas cambiar tu contraseña?</a>
+     <br>
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ Form.non_field_errors }}
@@ -24,7 +26,7 @@
                 </div>
                 <input type="submit" value="Actualizar" id="subir" class="btn btn-success">
             </form>
-
-            {{Form2}}
+            <br>
+            
 {% endblock content %}
     

@@ -72,6 +72,12 @@ h2 {
     border-radius: 50%;
     margin-right: 10px;
 }
+#opc_post{
+    display: inline-flex;
+}
+#eliminar_post{
+    float: left;
+}
 p.date { 
     color:#ccc;
     font-family: georgia, serif;
