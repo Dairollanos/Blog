@@ -1,137 +1,181 @@
-body { 
-    margin:0;
-    padding:0;
-    font-family:helvetica, sans-serif; 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica, sans-serif;
 }
 
-a { 
-    color:#000000;
-    text-decoration:none; 
+a {
+  color: #000000;
+  text-decoration: none;
 }
 
-h1 { 
-    font-weight:normal;
-    margin-top: 10px;
+h1 {
+  font-weight: normal;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-top: 0.7em;
 }
 
 h2 {
-    font-weight:normal;
-    margin:30px 0 0;
-    margin-bottom: 5px;
+  font-weight: normal;
+  font-size: 1.8rem;
+  margin: 1.2em 0 0;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
-#content { 
-    float:left;
-    width:60%;
-    padding:0 0 0 30px; 
+#sidebar h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-#sidebar { 
-    float:right;
-    width:30%;
-    padding:10px;
-    background:#cdd1ec; 
-    height:90%;
-}
-#mi-blog{
-    margin-top: 15px;
+#sidebar ul {
+  list-style: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
-#navbar{
-    background-color: #6c62a5;
-    color: white;
-}
-#tags{
-    color: #00abff;
-}
-#titulo-post:hover{
-    color: #1dc563;
+#sidebar li:hover {
+  font-size: 1rem;
+  text-decoration: underline;
 }
 
-#compartir{
-    color: #10009e;
+#mi-blog {
+  color: #6c62a5;
+  font-weight: bolder;
 }
-#compartir:hover{
-    color: #cc0033;
+
+#content {
+  float: left;
+  width: 60%;
+  padding: 0 0 0 1.5em;
 }
-#post-simil{
-    margin: 10px;
-    text-transform: uppercase;
-    color: #00abff;
+
+#sidebar {
+  float: right;
+  width: 30%;
+  padding: 1.2em;
+  background: #cdd1ec;
+  overflow: auto;
 }
-#post-simil:hover{
-    color: #0cc71b;
+
+#navbar {
+  background-color: #6c62a5;
+  color: white;
 }
-#sin-coments{
-    color: #f1446f;
+#tags {
+  color: #00abff;
 }
-#img-perfil{
-    float: left;
-    width: 60px;
-    height: 55px;
-    border-radius: 50%;
-    margin-right: 10px;
+#titulo-post:hover {
+  font-size: 1.9rem;
+  text-decoration: underline;
 }
-#opc_post{
-    display: inline-flex;
+
+#compartir {
+  color: #10009e;
 }
-#eliminar_post{
-    float: left;
+#compartir:hover {
+  color: #cc0033;
 }
-p.date { 
-    color:#ccc;
-    font-family: georgia, serif;
-    font-size: 15px;
-    font-style: italic; 
+#post-simil {
+  margin: 1em;
+  text-transform: uppercase;
+  color: #00abff;
+}
+#post-simil:hover {
+  color: #0cc71b;
+}
+#sin-coments {
+  color: #f1446f;
+}
+#img-perfil {
+  float: left;
+  width: 4.5em;
+  height: 4em;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+#imagen-en-perfil {
+  max-width: 25em;
+  max-height: 25em;
+}
+#opc_post {
+  display: inline-flex;
+}
+#eliminar_post {
+  float: left;
+}
+p.date {
+  color: #ccc;
+  font-family: georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
 }
 
 /* pagination */
-.pagination { 
-    margin:40px 0; 
-    font-weight:bold;
+.pagination {
+  margin: 2em 1em 0;
+  font-weight: bold;
 }
 
 /* forms */
-label { 
-    float:left;
-    clear:both;
-    color:#333;
-    margin-bottom:4px; 
+label {
+  float: left;
+  clear: both;
+  color: #333;
+  margin-bottom: 4px;
 }
-input, textarea { 
-    clear:both;
-    float:left;
-    margin:0 0 10px;
-    background:#ededed;
-    border:0;
-    padding:6px 10px;
-    font-size:12px;
+input,
+textarea {
+  clear: both;
+  float: left;
+  margin: 0 0 10px;
+  background: #ededed;
+  border: 0;
+  padding: 6px 10px;
+  font-size: 12px;
 }
-input[type=submit] {
-    font-weight:bold;
-    background:#00abff;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase; 
+input[type="submit"] {
+  font-weight: bold;
+  background: #00abff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
-.errorlist { 
-    color:#cc0033;
-    float:left;
-    clear:both;
-    padding-left:10px; 
+.errorlist {
+  color: #cc0033;
+  float: left;
+  clear: both;
+  padding-left: 10px;
 }
 
 /* comments */
 .comment {
-    padding:10px;
+  padding: 10px;
 }
 .comment:nth-child(even) {
-    background:#efefef;
+  background: #efefef;
 }
 .comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#666;
+  font-weight: bold;
+  font-size: 12px;
+  color: #666;
+}
 
+@media (max-width: 700px) {
+  #content {
+    padding: 0 0 0 1.5em;
+    margin: 0 auto;
+    width: 95%;
+    float: none;
+  }
+
+  #sidebar {
+    padding: 1.2em;
+    margin: 1em auto;
+    width: 95%;
+    background: #cdd1ec;
+    float: none;
+  }
 }
